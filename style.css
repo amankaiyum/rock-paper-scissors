@@ -1,0 +1,40 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: sans-serif;
+  display: flex;
+  flex-direction: column;
+  row-gap: 20px;
+}
+
+h1 {
+  background-color: lightskyblue;
+  padding: 5px;
+  min-width: 100vh;
+  text-align: center;
+  color: black;
+}
+
+ul {
+  list-style: none;
+  display: flex;
+  justify-content: center;
+  column-gap: 50px;
+}
+
+button {
+  border-radius: 8px;
+  padding: 20px;
+  border: lightseagreen solid 1px;
+  background-color: white;
+  transition-duration: .4s;
+}
+
+button:hover {
+  background-color: lightseagreen;
+  color: white;
+}

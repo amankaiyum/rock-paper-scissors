@@ -5,10 +5,10 @@
 }
 
 body {
-  font-family: sans-serif;
+  font-family: 'Roboto', sans-serif;
   display: flex;
   flex-direction: column;
-  row-gap: 20px;
+  row-gap: 40px;
 }
 
 h1 {
@@ -17,6 +17,7 @@ h1 {
   min-width: 100vh;
   text-align: center;
   color: black;
+  font-size: 40px;
 }
 
 ul {
@@ -37,4 +38,9 @@ button {
 button:hover {
   background-color: lightseagreen;
   color: white;
+}
+
+.results {
+  text-align: center;
+  font-size: 24px;
 }

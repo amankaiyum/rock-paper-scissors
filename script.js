@@ -52,27 +52,56 @@ function playRound(playerSelection) {
 }
 
 function game() {
-    let playerScore = 0;
-    let computerScore = 0;
-    for(i = 0; i < 5; i++) {
-        let playerSelection = window.prompt("Choose Rock, Paper, or Scissors");
-        let result = playRound(playerSelection);
-        if (result.includes("Win")) {
+    let result = playRound(playerSelection);
+    if (result.includes("Win")) {
             playerScore += 1;
-        }
-        else if (result.includes("Lose")) {
+    }
+    else if (result.includes("Lose")) {
             computerScore += 1;
+    }
+
+    if (playerScore + computerScore < 5) {
+        return `${result} ---- Player vs Computer ${playerScore} - ${computerScore}`;
+    }
+    else if (playerScore + computerScore === 5) {
+        let scorePlayer = playerScore;
+        let scoreComputer = computerScore;
+        playerScore = 0;
+        computerScore = 0;
+        if (scorePlayer > scoreComputer) {
+        return `Final Score ${scorePlayer} - ${scoreComputer} You Win!`;
         }
-        console.log(result);
-        console.log(`Player vs Computer \n${playerScore} - ${computerScore}`);
-    }
-    if (playerScore > computerScore) {
-        return `Final Score ${playerScore} - ${computerScore} You Win!`;
-    }
-    else if (playerScore < computerScore) {
-        return `Final Score ${playerScore} - ${computerScore} You Lose!`;
-    }
-    else {
-        return `Final Score ${playerScore} - ${computerScore} It's a Tie!`;
+        else if (scorePlayer < scoreComputer) {
+        return `Final Score ${scorePlayer} - ${scoreComputer} You Lose!`;
+        }
+        else {
+        return `Final Score ${scorePlayer} - ${scoreComputer} It's a Tie!`;
+        }
     }
 }
+
+let playerScore = 0;
+let computerScore = 0;
+const results = document.querySelector('.results');
+
+
+const rock = document.querySelector('.rock');
+rock.addEventListener('click', () => {
+    playerSelection = 'rock';
+    let score = game();
+    results.textContent = `${score}`;
+});
+
+const paper = document.querySelector('.paper');
+paper.addEventListener('click', () => {
+    playerSelection = 'paper';
+    score = game();
+    results.textContent = `${score}`;
+});
+
+const scissors = document.querySelector('.scissors');
+scissors.addEventListener('click', () => {
+    playerSelection = 'scissors';
+    score = game();
+    results.textContent = `${score}`;
+});
